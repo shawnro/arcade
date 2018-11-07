@@ -108,6 +108,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.CodeAnalys
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Darc.Tests", "src\Microsoft.DotNet.Darc\tests\Microsoft.DotNet.Darc.Tests\Microsoft.DotNet.Darc.Tests.csproj", "{E9A56677-7C2E-4907-BF43-4630270D7A11}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Build.Tasks.Platform", "src\Microsoft.DotNet.Build.Tasks.Platform\Microsoft.DotNet.Build.Tasks.Platform.csproj", "{DDCAC38C-8E4D-47E5-9363-C296977DCB31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -678,6 +680,18 @@ Global
 		{E9A56677-7C2E-4907-BF43-4630270D7A11}.Release|x64.Build.0 = Release|Any CPU
 		{E9A56677-7C2E-4907-BF43-4630270D7A11}.Release|x86.ActiveCfg = Release|Any CPU
 		{E9A56677-7C2E-4907-BF43-4630270D7A11}.Release|x86.Build.0 = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|x64.Build.0 = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Debug|x86.Build.0 = Debug|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|x64.ActiveCfg = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|x64.Build.0 = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|x86.ActiveCfg = Release|Any CPU
+		{DDCAC38C-8E4D-47E5-9363-C296977DCB31}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

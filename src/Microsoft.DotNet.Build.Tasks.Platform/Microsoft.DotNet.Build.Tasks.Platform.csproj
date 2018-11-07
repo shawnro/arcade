@@ -1,0 +1,33 @@
+<!-- Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net46;netstandard2.0</TargetFrameworks>
+
+    <Description>Common toolset for accessing platform information</Description>
+    <PackageType>MSBuildSdk</PackageType>
+
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+    <!-- EnableGeneratedPackageContent>false</EnableGeneratedPackageContent> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="$(MicrosoftBuildFrameworkVersion)"/>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="$(MicrosoftBuildUtilitiesCoreVersion)"/>
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="$(MicrosoftDotNetPlatformAbstractionsVersion)"/>
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <None Include="sdk/Microsoft.DotNet.Build.Tasks.Platform.props;sdk/Microsoft.DotNet.Build.Tasks.Platform.targets" Pack="true">
+      <PackagePath>sdk/%(Filename)%(Extension)</PackagePath>
+    </None>
+    <None Include="tools/**/*.*" Pack="true">
+      <PackagePath>tools/%(RecursiveDir)%(Filename)%(Extension)</PackagePath>
+    </None>
+
+  </ItemGroup>
+
+  <Import Project="$(RepoRoot)eng\BuildTask.targets" />
+
+</Project>
