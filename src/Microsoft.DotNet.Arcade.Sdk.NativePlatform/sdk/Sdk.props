@@ -4,5 +4,5 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
-  <Import Project="$(MSBuildThisFileDirectory)..\tools\Microsoft.DotNet.Build.Tasks.Platform.targets"/>
+  <Import Project="$(MSBuildThisFileDirectory)..\tools\NativePlatform.props"/>
 </Project>

@@ -7,7 +7,7 @@ using Microsoft.Build.Utilities;
 using System.Runtime.InteropServices;
 using Microsoft.DotNet.PlatformAbstractions;
 
-namespace Microsoft.DotNet.Build.Tasks.Platform
+namespace Microsoft.DotNet.Arcade.Sdk.NativePlatform
 {
     public class GetTargetPlatformInfo : Task
     {

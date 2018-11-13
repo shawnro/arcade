@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- All Rights Reserved. Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
+<Project>
+
+  <PropertyGroup>
+    <LibPrefix Condition="'$(OSGroup)' != 'Windows_NT'">lib</LibPrefix>
+    <LibSuffix>.so</LibSuffix> 
+    <LibSuffix Condition="'$(OSGroup)' == 'Windows_NT'">.dll</LibSuffix>
+    <LibSuffix Condition="'$(OSGroup)' == 'OSX'">.dylib</LibSuffix>
+    <SymbolFileExtension>.dbg</SymbolFileExtension>
+    <SymbolFileExtension Condition="'$(OSGroup)' == 'OSX'">.dwarf</SymbolFileExtension>
+    <SymbolFileExtension Condition="'$(OSGroup)' == 'Windows_NT'">.pdb</SymbolFileExtension> 
+  </PropertyGroup>
+  
+</Project>

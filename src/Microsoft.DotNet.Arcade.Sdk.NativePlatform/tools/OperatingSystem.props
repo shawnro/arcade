@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- All Rights Reserved. Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
+<Project>
+
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <!--
+    $(OS) is set to Unix/Windows_NT. This comes from an environment variable on Windows and MSBuild on Unix.
+  -->
+  <PropertyGroup>
+    <!-- Temp change to make OS X build behave as a Linux build -->
+    <OSEnvironment Condition="'$(OSEnvironment)' == '' AND '$(OS)' == 'OSX'">Unix</OSEnvironment>
+    <OSEnvironment Condition="'$(OSEnvironment)' == ''">$(OS)</OSEnvironment>
+  </PropertyGroup>
+
+  <!-- SHAWNR: OSGroup used to be set outside this condition, but that didn't seem right given the conditional below -->
+  <PropertyGroup>
+    <OSGroup Condition="'$(OSGroup)' == ''">$(OSEnvironment)</OSGroup>
+  </PropertyGroup>
+
+  <!--
+  If Configuration is empty that means we are not being built in VS and so folks need to explicitly pass the different
+  values for $(ConfigurationGroup) or $(OSGroup) or accept the defaults for them.
+  -->
+  <!-- SHAWNR: see if we can use the defaults already in Arcade.Sdk -->
+  <PropertyGroup Condition="'$(Configuration)' == ''">
+    <ConfigurationGroup Condition="'$(ConfigurationGroup)' == ''">Debug</ConfigurationGroup>
+    <Configuration>$(ConfigurationGroup)</Configuration>
+    <Configuration>$(OSGroup)_$(Configuration)</Configuration>
+  </PropertyGroup>
+
+  <!--
+  If Configuration is set then someone explicitly passed it in or we building from VS. In either case
+  default $(ConfigurationGroup) or $(OSGroup) from the Configuration if they aren't
+  already explicitly set.
+  -->
+  <PropertyGroup Condition="'$(Configuration)' != ''">
+    <ConfigurationGroup Condition="'$(ConfigurationGroup)' == '' and $(Configuration.EndsWith('Debug'))">Debug</ConfigurationGroup>
+    <ConfigurationGroup Condition="'$(ConfigurationGroup)' == '' and $(Configuration.EndsWith('Release'))">Release</ConfigurationGroup>
+    <ConfigurationGroup Condition="'$(ConfigurationGroup)' == ''">Debug</ConfigurationGroup>
+
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('Windows'))">Windows_NT</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('Unix'))">Unix</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('Linux'))">Linux</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('OSX'))">OSX</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('FreeBSD'))">FreeBSD</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == '' and $(Configuration.StartsWith('NetBSD'))">NetBSD</OSGroup>
+    <OSGroup Condition="'$(OSGroup)' == ''">AnyOS</OSGroup>
+  </PropertyGroup>
+
+</Project>

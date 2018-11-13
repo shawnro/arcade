@@ -108,7 +108,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.CodeAnalys
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Darc.Tests", "src\Microsoft.DotNet.Darc\tests\Microsoft.DotNet.Darc.Tests\Microsoft.DotNet.Darc.Tests.csproj", "{E9A56677-7C2E-4907-BF43-4630270D7A11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Build.Tasks.Platform", "src\Microsoft.DotNet.Build.Tasks.Platform\Microsoft.DotNet.Build.Tasks.Platform.csproj", "{DDCAC38C-8E4D-47E5-9363-C296977DCB31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.DotNet.Arcade.Sdk.NativePlatform", "src\Microsoft.DotNet.Arcade.Sdk.NativePlatform\Microsoft.DotNet.Arcade.Sdk.NativePlatform.csproj", "{DDCAC38C-8E4D-47E5-9363-C296977DCB31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

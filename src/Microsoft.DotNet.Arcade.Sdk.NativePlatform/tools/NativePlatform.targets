@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- All Rights Reserved. Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
+<Project>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <Target Name="LoadPlatformInfo" Condition="'$(HostMachineRid)' == ''">
+    <Microsoft.DotNet.Arcade.Sdk.NativePlatform.GetTargetPlatformInfo>
+      <Output PropertyName="HostMachineRid" TaskParameter="RuntimeIdentifier" />
+    </Microsoft.DotNet.Arcade.Sdk.NativePlatform.GetTargetPlatformInfo>
+    
+    <Message Text="HostMachineRid - '$(HostMachineRid)'" Importance="High" />
+  </Target>
+
+   <Target Name="CreateHostMachinePropsFile" Condition="!Exists('$(HostMachineProps)')" DependsOnTargets="LoadPlatformInfo">
+
+    <Message Text="Creating HostMachineProps - '$(HostMachineProps)'" Importance="High" />
+
+    <PropertyGroup>
+      <HostMachinePropsContent>
+&lt;Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"&gt;
+  &lt;PropertyGroup&gt;
+    &lt;HostMachineRid&gt;$(HostMachineRid)&lt;/HostMachineRid&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
+      </HostMachinePropsContent>
+    </PropertyGroup>
+
+    <WriteLinesToFile File="$(HostMachineProps)"
+                      Lines="$(HostMachinePropsContent)"
+                      Overwrite="True" />
+  </Target> 
+</Project>
